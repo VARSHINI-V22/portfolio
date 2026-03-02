@@ -1,4 +1,4 @@
-// Function to load HTML sections
+
 async function loadSection(containerId, filePath) {
   try {
     const response = await fetch(filePath);
@@ -11,7 +11,6 @@ async function loadSection(containerId, filePath) {
   }
 }
 
-// Load all sections
 window.addEventListener('DOMContentLoaded', async () => {
   await loadSection('navbar-container', 'sections/navbar.html');
   await loadSection('hero-container', 'sections/hero.html');
@@ -20,13 +19,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadSection('projects-container', 'sections/projects.html');
   await loadSection('experience-container', 'sections/experience.html');
   await loadSection('contact-container', 'sections/contact.html');
-
-  // After all sections are loaded, initialize event listeners
   initEventListeners();
 });
 
 function initEventListeners() {
-  // Resume download
+  
   const downloadBtn = document.getElementById('downloadResumeBtn');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', function(e) {
@@ -95,8 +92,6 @@ function initEventListeners() {
       doc.save('Varshini_V_Resume.pdf');
     });
   }
-
-  // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       if (this.getAttribute('href') !== '#') {
